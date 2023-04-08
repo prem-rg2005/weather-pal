@@ -16,6 +16,7 @@
 		3BCF864D29E12EA1006959C6 /* WeatherPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF864C29E12EA1006959C6 /* WeatherPalTests.swift */; };
 		3BCF865729E12EA1006959C6 /* WeatherPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF865629E12EA1006959C6 /* WeatherPalUITests.swift */; };
 		3BCF865929E12EA1006959C6 /* WeatherPalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF865829E12EA1006959C6 /* WeatherPalUITestsLaunchTests.swift */; };
+		3BCF866629E15A68006959C6 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF866529E15A68006959C6 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3BCF865229E12EA1006959C6 /* WeatherPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BCF865629E12EA1006959C6 /* WeatherPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPalUITests.swift; sourceTree = "<group>"; };
 		3BCF865829E12EA1006959C6 /* WeatherPalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BCF866529E15A68006959C6 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				3BCF863529E12EA0006959C6 /* AppDelegate.swift */,
 				3BCF863729E12EA0006959C6 /* SceneDelegate.swift */,
 				3BCF863929E12EA0006959C6 /* ViewController.swift */,
+				3BCF866529E15A68006959C6 /* WeatherViewModel.swift */,
 				3BCF863B29E12EA0006959C6 /* Main.storyboard */,
 				3BCF863E29E12EA1006959C6 /* Assets.xcassets */,
 				3BCF864029E12EA1006959C6 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BCF863A29E12EA0006959C6 /* ViewController.swift in Sources */,
+				3BCF866629E15A68006959C6 /* WeatherViewModel.swift in Sources */,
 				3BCF863629E12EA0006959C6 /* AppDelegate.swift in Sources */,
 				3BCF863829E12EA0006959C6 /* SceneDelegate.swift in Sources */,
 			);
