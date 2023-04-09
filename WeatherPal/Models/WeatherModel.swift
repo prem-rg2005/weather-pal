@@ -4,18 +4,10 @@
 //
 //  Created by Prem Shankar Rajagopalan Nayar on 8/4/23.
 //
-
-import Foundation
-
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let weather = try? JSONDecoder().decode(Weather.self, from: jsonData)
-
 import Foundation
 
 // MARK: - Weather
-struct Weather: Codable {
+struct WeatherData: Codable {
     let lat, lon: Double
     let timezone: String
     let timezoneOffset: Int
@@ -40,7 +32,7 @@ struct Current: Codable {
     let clouds, visibility: Int
     let windSpeed: Double
     let windDeg: Int
-    let windGust: Double
+    let windGust: Double?
     let weather: [WeatherElement]
     let pop: Int?
 
@@ -74,7 +66,7 @@ struct Daily: Codable {
     let pressure, humidity: Int
     let dewPoint, windSpeed: Double
     let windDeg: Int
-    let windGust: Double
+    let windGust: Double?
     let weather: [WeatherElement]
     let clouds: Int
     let pop, uvi: Double
