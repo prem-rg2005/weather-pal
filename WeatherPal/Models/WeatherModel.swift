@@ -4,9 +4,10 @@
 //
 //  Created by Prem Shankar Rajagopalan Nayar on 8/4/23.
 //
+
 import Foundation
 
-// MARK: - Weather
+// MARK: - WeatherData
 struct WeatherData: Codable {
     let lat, lon: Double
     let timezone: String
@@ -32,9 +33,9 @@ struct Current: Codable {
     let clouds, visibility: Int
     let windSpeed: Double
     let windDeg: Int
-    let windGust: Double?
     let weather: [WeatherElement]
-    let pop: Int?
+    let windGust, pop: Double?
+    let rain: Rain?
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp
@@ -44,16 +45,27 @@ struct Current: Codable {
         case uvi, clouds, visibility
         case windSpeed = "wind_speed"
         case windDeg = "wind_deg"
+        case weather
         case windGust = "wind_gust"
-        case weather, pop
+        case pop, rain
     }
 }
 
+// MARK: - Rain
+struct Rain: Codable {
+    let the1H: Double
+
+    enum CodingKeys: String, CodingKey {
+        case the1H = "1h"
+    }
+}
+
+// MARK: - WeatherElement
 struct WeatherElement: Codable {
     let id: Int
-    let main: Main
-    let description: Description
-    let icon: String
+    let main: String
+    let description: String
+    let icon: String?//Icon
 }
 
 // MARK: - Daily
@@ -66,11 +78,12 @@ struct Daily: Codable {
     let pressure, humidity: Int
     let dewPoint, windSpeed: Double
     let windDeg: Int
-    let windGust: Double?
+    let windGust: Double
     let weather: [WeatherElement]
     let clouds: Int
-    let pop, uvi: Double
+    let pop: Double
     let rain: Double?
+    let uvi: Double
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, moonrise, moonset
@@ -82,31 +95,17 @@ struct Daily: Codable {
         case windSpeed = "wind_speed"
         case windDeg = "wind_deg"
         case windGust = "wind_gust"
-        case weather, clouds, pop, uvi, rain
+        case weather, clouds, pop, rain, uvi
     }
 }
 
+// MARK: - FeelsLike
 struct FeelsLike: Codable {
     let day, night, eve, morn: Double
 }
 
+// MARK: - Temp
 struct Temp: Codable {
     let day, min, max, night: Double
     let eve, morn: Double
-}
-
-// MARK: - Enumerations
-enum Description: String, Codable {
-    case brokenClouds = "broken clouds"
-    case clearSky = "clear sky"
-    case fewClouds = "few clouds"
-    case lightRain = "light rain"
-    case overcastClouds = "overcast clouds"
-    case scatteredClouds = "scattered clouds"
-}
-
-enum Main: String, Codable {
-    case clear = "Clear"
-    case clouds = "Clouds"
-    case rain = "Rain"
 }

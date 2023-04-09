@@ -41,11 +41,11 @@ class CurrentTableCell: UITableViewCell {
         guard let current = currentWeather, let daily = dailyWeather else {
             return
         }
-        
+
         self.locationLabel.text = "California"
-        self.temperatureLabel.text = "\(Int(current.temp))°C"
-        self.weatherDescriptionLabel.text = current.weather.first?.description.rawValue.uppercased()
-        self.highTemperatureLabel.text = "High: \(Int(daily.temp.max))°C"
-        self.lowTemperatureLabel.text = "Low: \(Int(daily.temp.min))°C"
+        self.temperatureLabel.text = "\(Int(current.temp))°"
+        self.weatherDescriptionLabel.text = current.weather.first?.description.uppercased()
+        self.highTemperatureLabel.text = "High: \(Int(daily.temp.max))°"
+        self.lowTemperatureLabel.text = "Low: \(Int(daily.temp.min))°"
     }
 }

@@ -45,8 +45,8 @@ class WeeklyTableCell: UITableViewCell {
         }
 
         self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: TimeInterval(weekly.dt)))
-        self.highTempLabel.text = "H: \(Int(weekly.temp.max))°C"
-        self.lowTempLabel.text = "L: \(Int(weekly.temp.min))°C"
+        self.highTempLabel.text = "H: \(Int(weekly.temp.max))°"
+        self.lowTempLabel.text = "L: \(Int(weekly.temp.min))°"
     }
     
     func getDayForDate(_ date: Date?) -> String {
