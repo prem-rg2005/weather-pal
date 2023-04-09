@@ -17,11 +17,13 @@ class WeatherViewController: UIViewController {
     var viewModel: WeatherViewModel?
     let locationManager = CLLocationManager()
     var userLocation: CLLocation?
+    let sections: [SectionTypes] = [.current, .hourly, .weekly]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(CurrentTableCell.nib(), forCellReuseIdentifier: CurrentTableCell.identifier)
         tableView.register(WeeklyTableCell.nib(), forCellReuseIdentifier: WeeklyTableCell.identifier)
         tableView.register(HourlyTableCell.nib(), forCellReuseIdentifier: HourlyTableCell.identifier)
         locationManager.delegate = self
@@ -41,12 +43,32 @@ class WeatherViewController: UIViewController {
 }
 
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
     }
-    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if sections[section] == .weekly {
+            return 2 //TODO: Replace with weeks count
+        } else {
+            return 1
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if sections[indexPath.section] == .current {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CurrentTableCell.identifier, for: indexPath) as! CurrentTableCell
+            cell.configureCellData()
+            return cell
+        }
         return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if sections[indexPath.section] == .current {
+            return 250
+        }
+        return UITableView.automaticDimension
     }
 }
 
