@@ -23,6 +23,9 @@
 		3BCF867329E18397006959C6 /* WeeklyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCF867129E18397006959C6 /* WeeklyTableCell.xib */; };
 		3BCF867629E183C1006959C6 /* HourlyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF867429E183C1006959C6 /* HourlyTableCell.swift */; };
 		3BCF867729E183C1006959C6 /* HourlyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCF867529E183C1006959C6 /* HourlyTableCell.xib */; };
+		3BCF867A29E28A28006959C6 /* CurrentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF867829E28A28006959C6 /* CurrentTableCell.swift */; };
+		3BCF867B29E28A28006959C6 /* CurrentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCF867929E28A28006959C6 /* CurrentTableCell.xib */; };
+		3BCF867D29E2DDD8006959C6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF867C29E2DDD8006959C6 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		3BCF867129E18397006959C6 /* WeeklyTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeklyTableCell.xib; sourceTree = "<group>"; };
 		3BCF867429E183C1006959C6 /* HourlyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyTableCell.swift; sourceTree = "<group>"; };
 		3BCF867529E183C1006959C6 /* HourlyTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyTableCell.xib; sourceTree = "<group>"; };
+		3BCF867829E28A28006959C6 /* CurrentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableCell.swift; sourceTree = "<group>"; };
+		3BCF867929E28A28006959C6 /* CurrentTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentTableCell.xib; sourceTree = "<group>"; };
+		3BCF867C29E2DDD8006959C6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				3BCF866D29E1692A006959C6 /* Constants.swift */,
+				3BCF867C29E2DDD8006959C6 /* Enums.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -176,6 +183,8 @@
 				3BCF867129E18397006959C6 /* WeeklyTableCell.xib */,
 				3BCF867429E183C1006959C6 /* HourlyTableCell.swift */,
 				3BCF867529E183C1006959C6 /* HourlyTableCell.xib */,
+				3BCF867829E28A28006959C6 /* CurrentTableCell.swift */,
+				3BCF867929E28A28006959C6 /* CurrentTableCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +297,7 @@
 				3BCF867329E18397006959C6 /* WeeklyTableCell.xib in Resources */,
 				3BCF863F29E12EA1006959C6 /* Assets.xcassets in Resources */,
 				3BCF867729E183C1006959C6 /* HourlyTableCell.xib in Resources */,
+				3BCF867B29E28A28006959C6 /* CurrentTableCell.xib in Resources */,
 				3BCF863D29E12EA0006959C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,12 +325,14 @@
 			files = (
 				3BCF863A29E12EA0006959C6 /* WeatherViewController.swift in Sources */,
 				3BCF866629E15A68006959C6 /* WeatherViewModel.swift in Sources */,
+				3BCF867D29E2DDD8006959C6 /* Enums.swift in Sources */,
 				3BCF863629E12EA0006959C6 /* AppDelegate.swift in Sources */,
 				3BCF867629E183C1006959C6 /* HourlyTableCell.swift in Sources */,
 				3BCF863829E12EA0006959C6 /* SceneDelegate.swift in Sources */,
 				3BCF867229E18397006959C6 /* WeeklyTableCell.swift in Sources */,
 				3BCF866929E166B7006959C6 /* WeatherModel.swift in Sources */,
 				3BCF866E29E1692A006959C6 /* Constants.swift in Sources */,
+				3BCF867A29E28A28006959C6 /* CurrentTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
