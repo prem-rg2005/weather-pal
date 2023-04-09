@@ -14,6 +14,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Constants and variables
+    var viewModel: WeatherViewModel?
     let locationManager = CLLocationManager()
     var userLocation: CLLocation?
 
@@ -21,17 +22,21 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(WeeklyTableCell.nib(), forCellReuseIdentifier: WeeklyTableCell.identifier)
+        tableView.register(HourlyTableCell.nib(), forCellReuseIdentifier: HourlyTableCell.identifier)
+        locationManager.delegate = self
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getUserLocation()
     }
-    
+
     func getUserLocation() {
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        if userLocation == nil {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
 }
 
@@ -51,13 +56,13 @@ extension WeatherViewController: CLLocationManagerDelegate {
             userLocation = locations.first
             locationManager.stopUpdatingLocation()
         }
-        tempFunction()
-    }
-    
-    func tempFunction() {
-        guard let currentLocation = userLocation else {
+        guard let location = userLocation else {
+            print("1------ User's location is still not updated")
             return
         }
-        print("Latitude is \(currentLocation.coordinate.latitude) and longitude is \(currentLocation.coordinate.longitude)")
+        viewModel = WeatherViewModel(userLocation: location)
+        viewModel?.getWeatherDetails(completion: {
+            print("1------ Weather data updated")
+        })
     }
 }

@@ -6,29 +6,46 @@
 //
 
 import Foundation
+import CoreLocation
 
 class WeatherViewModel {
-    var latitude: String
-    var longitude: String
-    
-    public init(latitude: String, longitude: String) {
-        self.latitude = latitude
-        self.longitude = longitude
+    var weatherData: WeatherData? {
+        didSet {
+            self.dailyWeather = self.weatherData?.daily
+            self.hourlyWeather = self.weatherData?.hourly
+        }
     }
+    var dailyWeather: [Daily]?
+    var hourlyWeather: [Current]?
+    var userLocation: CLLocation
     
-    func getWeatherDetails() {
-        let urlString = "https://api.openweathermap.org/data/3.0/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely&appid=\(Constants.apiKey)"
-        
+    public init(userLocation: CLLocation) {
+        self.userLocation = userLocation
+    }
+
+    func getWeatherDetails(completion: @escaping () -> Void) {
+        weatherData = nil
+        let urlString = "\(Constants.baseUrl)?lat=\(self.userLocation.coordinate.latitude)&lon=\(self.userLocation.coordinate.longitude)&exclude=minutely&appid=\(Constants.apiKey)"
+
         guard let url = URL(string: urlString) else {
-            // Include some error description, maybe an alert
+            print("Error getting URL")
             return
         }
-        
+
         URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
             guard let data = data, error == nil else {
-                // Include some error description, maybe an alert
+                print("Error while trying to retrieve data from server")
                 return
             }
-        })
+            do {
+                self.weatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+            } catch {
+                print("Error is \(error)")
+            }
+            guard self.weatherData != nil else {
+                return
+            }
+            completion()
+        }).resume()
     }
 }
