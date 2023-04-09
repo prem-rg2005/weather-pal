@@ -30,7 +30,7 @@ class CurrentTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configureUI() {
+    private func configureUI() {
         self.locationLabel.textAlignment = .center
         self.locationLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
         self.temperatureLabel.font = UIFont.boldSystemFont(ofSize: 50)
@@ -41,14 +41,11 @@ class CurrentTableCell: UITableViewCell {
         guard let current = currentWeather, let daily = dailyWeather else {
             return
         }
-        let temp = String(Int(current.temp))
-        let highTemp = String(Int(daily.temp.max))
-        let lowTemp = String(Int(daily.temp.min))
         
         self.locationLabel.text = "California"
-        self.temperatureLabel.text = "\(temp)°C"
+        self.temperatureLabel.text = "\(Int(current.temp))°C"
         self.weatherDescriptionLabel.text = current.weather.first?.description.rawValue.uppercased()
-        self.highTemperatureLabel.text = "High: \(highTemp)°C"
-        self.lowTemperatureLabel.text = "Low: \(lowTemp)°C"
+        self.highTemperatureLabel.text = "High: \(Int(daily.temp.max))°C"
+        self.lowTemperatureLabel.text = "Low: \(Int(daily.temp.min))°C"
     }
 }
