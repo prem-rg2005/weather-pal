@@ -14,7 +14,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Constants and variables
-    var viewModel: WeatherViewModel?
+    var viewModel = WeatherViewModel()
     let locationManager = CLLocationManager()
     var userLocation: CLLocation?
     let sections: [SectionTypes] = [.current, .hourly, .weekly]
@@ -28,16 +28,26 @@ class WeatherViewController: UIViewController {
         tableView.register(HourlyTableCell.nib(), forCellReuseIdentifier: HourlyTableCell.identifier)
         locationManager.delegate = self
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getUserLocation()
+        updateViewModel {
+            self.tableView.reloadData()
+        }
     }
 
     func getUserLocation() {
-        if userLocation == nil {
+        if self.userLocation == nil {
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func updateViewModel(completion: @escaping () -> Void) {
+        getUserLocation()
+        if self.userLocation != nil {
+            viewModel.userLocation = self.userLocation
+            viewModel.getWeatherDetails(completion: completion)
         }
     }
 }
@@ -58,7 +68,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if sections[indexPath.section] == .current {
             let cell = tableView.dequeueReusableCell(withIdentifier: CurrentTableCell.identifier, for: indexPath) as! CurrentTableCell
-            cell.configureCellData()
+            cell.configureCellData(currentWeather: self.viewModel.currentWeather, dailyWeather: self.viewModel.dailyWeather)
             return cell
         }
         return UITableViewCell()
@@ -77,14 +87,11 @@ extension WeatherViewController: CLLocationManagerDelegate {
         if !locations.isEmpty, userLocation == nil {
             userLocation = locations.first
             locationManager.stopUpdatingLocation()
+            updateViewModel {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
-        guard let location = userLocation else {
-            print("1------ User's location is still not updated")
-            return
-        }
-        viewModel = WeatherViewModel(userLocation: location)
-        viewModel?.getWeatherDetails(completion: {
-            print("1------ Weather data updated")
-        })
     }
 }

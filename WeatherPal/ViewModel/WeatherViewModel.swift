@@ -9,23 +9,28 @@ import Foundation
 import CoreLocation
 
 class WeatherViewModel {
+    // MARK: Variables
+    var userLocation: CLLocation?
     var weatherData: WeatherData? {
         didSet {
-            self.dailyWeather = self.weatherData?.daily
+            self.dailyWeather = self.weatherData?.daily.first
             self.hourlyWeather = self.weatherData?.hourly
+            self.currentWeather = self.weatherData?.current
+            self.weeklyWeather = self.weatherData?.daily
         }
     }
-    var dailyWeather: [Daily]?
+    var currentWeather: Current?
     var hourlyWeather: [Current]?
-    var userLocation: CLLocation
-    
-    public init(userLocation: CLLocation) {
-        self.userLocation = userLocation
-    }
+    var dailyWeather: Daily?
+    var weeklyWeather: [Daily]?
 
+    // MARK: Function to call Weather API
     func getWeatherDetails(completion: @escaping () -> Void) {
         weatherData = nil
-        let urlString = "\(Constants.baseUrl)?lat=\(self.userLocation.coordinate.latitude)&lon=\(self.userLocation.coordinate.longitude)&exclude=minutely&appid=\(Constants.apiKey)"
+        guard let location  = self.userLocation else {
+            return
+        }
+        let urlString = "\(Constants.baseUrl)?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&exclude=minutely&units=metric&appid=\(Constants.apiKey)"
 
         guard let url = URL(string: urlString) else {
             print("Error getting URL")
