@@ -21,6 +21,7 @@ class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 88/255.0, green: 156/255.0, blue: 199/255.0, alpha: 1.0)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrentTableCell.nib(), forCellReuseIdentifier: CurrentTableCell.identifier)
@@ -59,7 +60,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sections[section] == .weekly {
-            return 2 //TODO: Replace with weeks count
+            return viewModel.weeklyWeather?.count ?? 1
         } else {
             return 1
         }
@@ -70,6 +71,10 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: CurrentTableCell.identifier, for: indexPath) as! CurrentTableCell
             cell.configureCellData(currentWeather: self.viewModel.currentWeather, dailyWeather: self.viewModel.dailyWeather)
             return cell
+        } else if sections[indexPath.section] == .weekly {
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeeklyTableCell.identifier, for: indexPath) as! WeeklyTableCell
+            cell.configureCellData(weeklyWeather: self.viewModel.weeklyWeather?[indexPath.row])
+            return cell
         }
         return UITableViewCell()
     }
@@ -77,6 +82,8 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if sections[indexPath.section] == .current {
             return 250
+        } else if sections[indexPath.section] == .weekly {
+            return 50
         }
         return UITableView.automaticDimension
     }
