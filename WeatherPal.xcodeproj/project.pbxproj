@@ -26,6 +26,7 @@
 		3BCF867A29E28A28006959C6 /* CurrentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF867829E28A28006959C6 /* CurrentTableCell.swift */; };
 		3BCF867B29E28A28006959C6 /* CurrentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BCF867929E28A28006959C6 /* CurrentTableCell.xib */; };
 		3BCF867D29E2DDD8006959C6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF867C29E2DDD8006959C6 /* Enums.swift */; };
+		3BCF868129E3054F006959C6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF868029E3054F006959C6 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		3BCF867829E28A28006959C6 /* CurrentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTableCell.swift; sourceTree = "<group>"; };
 		3BCF867929E28A28006959C6 /* CurrentTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentTableCell.xib; sourceTree = "<group>"; };
 		3BCF867C29E2DDD8006959C6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3BCF868029E3054F006959C6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			children = (
 				3BCF866D29E1692A006959C6 /* Constants.swift */,
 				3BCF867C29E2DDD8006959C6 /* Enums.swift */,
+				3BCF868029E3054F006959C6 /* UIImageView+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			files = (
 				3BCF863A29E12EA0006959C6 /* WeatherViewController.swift in Sources */,
 				3BCF866629E15A68006959C6 /* WeatherViewModel.swift in Sources */,
+				3BCF868129E3054F006959C6 /* UIImageView+Extensions.swift in Sources */,
 				3BCF867D29E2DDD8006959C6 /* Enums.swift in Sources */,
 				3BCF863629E12EA0006959C6 /* AppDelegate.swift in Sources */,
 				3BCF867629E183C1006959C6 /* HourlyTableCell.swift in Sources */,
