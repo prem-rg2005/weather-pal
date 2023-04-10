@@ -18,7 +18,7 @@ class Utils {
         dateFormatter.locale = Locale.autoupdatingCurrent
         return dateFormatter.string(from: currentTime as Date)
     }
-    
+
     // Function to retrieve day of the week
     static func getDayForDate(_ date: Date?) -> String {
         guard let inputDate = date else {
