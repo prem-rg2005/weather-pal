@@ -92,6 +92,30 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
             return 110
         }
     }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch sections[section] {
+        case .hourly:
+            return "HOURLY"
+        case .weekly:
+            return "WEEKLY FORECAST"
+        case .current:
+            return ""
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch sections[section] {
+        case .current:
+            return CGFloat.leastNormalMagnitude
+        case .hourly, .weekly:
+            return 15
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
 }
 
 // MARK: CLLocation delegate function
