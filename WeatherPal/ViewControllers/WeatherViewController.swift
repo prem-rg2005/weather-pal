@@ -99,7 +99,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if sections[indexPath.section] == .current {
-            return 200
+            return 180
         } else if sections[indexPath.section] == .weekly {
             return 60
         } else {
@@ -123,7 +123,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         case .current:
             return CGFloat.leastNormalMagnitude
         case .hourly, .weekly:
-            return 15
+            return 40
         }
     }
 
