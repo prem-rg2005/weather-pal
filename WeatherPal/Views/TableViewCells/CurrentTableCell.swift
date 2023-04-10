@@ -42,7 +42,7 @@ class CurrentTableCell: UITableViewCell {
             return
         }
 
-        self.locationLabel.text = "California"
+        self.locationLabel.text = "Singapore"
         self.temperatureLabel.text = "\(Int(current.temp))°"
         self.weatherDescriptionLabel.text = current.weather.first?.description.uppercased()
         self.highTemperatureLabel.text = "High: \(Int(daily.temp.max))°"

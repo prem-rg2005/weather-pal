@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB6543129E3BED200A8A58C /* HourlyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6542F29E3BED200A8A58C /* HourlyCollectionCell.swift */; };
+		3BB6543229E3BED200A8A58C /* HourlyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB6543029E3BED200A8A58C /* HourlyCollectionCell.xib */; };
 		3BCF863629E12EA0006959C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF863529E12EA0006959C6 /* AppDelegate.swift */; };
 		3BCF863829E12EA0006959C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF863729E12EA0006959C6 /* SceneDelegate.swift */; };
 		3BCF863A29E12EA0006959C6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF863929E12EA0006959C6 /* WeatherViewController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BB6542F29E3BED200A8A58C /* HourlyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionCell.swift; sourceTree = "<group>"; };
+		3BB6543029E3BED200A8A58C /* HourlyCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyCollectionCell.xib; sourceTree = "<group>"; };
 		3BCF863229E12EA0006959C6 /* WeatherPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BCF863529E12EA0006959C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BCF863729E12EA0006959C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BB6542D29E3BE8000A8A58C /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3BB6542F29E3BED200A8A58C /* HourlyCollectionCell.swift */,
+				3BB6543029E3BED200A8A58C /* HourlyCollectionCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		3BB6542E29E3BE9300A8A58C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3BCF867029E18397006959C6 /* WeeklyTableCell.swift */,
+				3BCF867129E18397006959C6 /* WeeklyTableCell.xib */,
+				3BCF867429E183C1006959C6 /* HourlyTableCell.swift */,
+				3BCF867529E183C1006959C6 /* HourlyTableCell.xib */,
+				3BCF867829E28A28006959C6 /* CurrentTableCell.swift */,
+				3BCF867929E28A28006959C6 /* CurrentTableCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		3BCF862929E12EA0006959C6 = {
 			isa = PBXGroup;
 			children = (
@@ -182,12 +208,8 @@
 		3BCF866F29E18330006959C6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3BCF867029E18397006959C6 /* WeeklyTableCell.swift */,
-				3BCF867129E18397006959C6 /* WeeklyTableCell.xib */,
-				3BCF867429E183C1006959C6 /* HourlyTableCell.swift */,
-				3BCF867529E183C1006959C6 /* HourlyTableCell.xib */,
-				3BCF867829E28A28006959C6 /* CurrentTableCell.swift */,
-				3BCF867929E28A28006959C6 /* CurrentTableCell.xib */,
+				3BB6542D29E3BE8000A8A58C /* CollectionViewCells */,
+				3BB6542E29E3BE9300A8A58C /* TableViewCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +321,7 @@
 				3BCF864229E12EA1006959C6 /* LaunchScreen.storyboard in Resources */,
 				3BCF867329E18397006959C6 /* WeeklyTableCell.xib in Resources */,
 				3BCF863F29E12EA1006959C6 /* Assets.xcassets in Resources */,
+				3BB6543229E3BED200A8A58C /* HourlyCollectionCell.xib in Resources */,
 				3BCF867729E183C1006959C6 /* HourlyTableCell.xib in Resources */,
 				3BCF867B29E28A28006959C6 /* CurrentTableCell.xib in Resources */,
 				3BCF863D29E12EA0006959C6 /* Main.storyboard in Resources */,
@@ -334,6 +357,7 @@
 				3BCF867629E183C1006959C6 /* HourlyTableCell.swift in Sources */,
 				3BCF863829E12EA0006959C6 /* SceneDelegate.swift in Sources */,
 				3BCF867229E18397006959C6 /* WeeklyTableCell.swift in Sources */,
+				3BB6543129E3BED200A8A58C /* HourlyCollectionCell.swift in Sources */,
 				3BCF866929E166B7006959C6 /* WeatherModel.swift in Sources */,
 				3BCF866E29E1692A006959C6 /* Constants.swift in Sources */,
 				3BCF867A29E28A28006959C6 /* CurrentTableCell.swift in Sources */,

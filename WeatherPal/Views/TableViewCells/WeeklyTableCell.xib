@@ -35,16 +35,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-bK-nVZ">
-                        <rect key="frame" x="176" y="9.5" width="40" height="40"/>
+                        <rect key="frame" x="156" y="4.5" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="eJJ-QE-FTQ"/>
-                            <constraint firstAttribute="height" constant="40" id="gk2-oG-CfK"/>
+                            <constraint firstAttribute="width" constant="50" id="eJJ-QE-FTQ"/>
+                            <constraint firstAttribute="height" constant="50" id="gk2-oG-CfK"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="yqc-bK-nVZ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="7TV-w8-JjM"/>
                     <constraint firstItem="usR-Ky-2RU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="DHd-WL-9Ii"/>
-                    <constraint firstItem="B2n-hp-vHO" firstAttribute="leading" secondItem="yqc-bK-nVZ" secondAttribute="trailing" constant="30" id="KeK-RJ-BBv"/>
                     <constraint firstItem="d3G-bh-btl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qj6-BM-ud6"/>
                     <constraint firstAttribute="trailing" secondItem="d3G-bh-btl" secondAttribute="trailing" constant="16" id="Rni-Fm-U6O"/>
                     <constraint firstItem="yqc-bK-nVZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hS4-3P-K1E"/>

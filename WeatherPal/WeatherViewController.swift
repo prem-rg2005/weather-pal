@@ -21,7 +21,7 @@ class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 88/255.0, green: 156/255.0, blue: 199/255.0, alpha: 1.0)
+        self.view.backgroundColor = Constants.mainBackgroundColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CurrentTableCell.nib(), forCellReuseIdentifier: CurrentTableCell.identifier)
@@ -53,6 +53,7 @@ class WeatherViewController: UIViewController {
     }
 }
 
+// MARK: TableView functions
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -75,20 +76,25 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: WeeklyTableCell.identifier, for: indexPath) as! WeeklyTableCell
             cell.configureCellData(weeklyWeather: self.viewModel.weeklyWeather?[indexPath.row])
             return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: HourlyTableCell.identifier, for: indexPath) as! HourlyTableCell
+            cell.configureCollectionView(with: self.viewModel.hourlyWeather ?? [])
+            return cell
         }
-        return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if sections[indexPath.section] == .current {
-            return 250
+            return 200
         } else if sections[indexPath.section] == .weekly {
-            return 50
+            return 60
+        } else {
+            return 110
         }
-        return UITableView.automaticDimension
     }
 }
 
+// MARK: CLLocation delegate function
 extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !locations.isEmpty, userLocation == nil {

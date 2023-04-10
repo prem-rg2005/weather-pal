@@ -57,6 +57,4 @@ class WeeklyTableCell: UITableViewCell {
         formatter.dateFormat = "EEEE"
         return formatter.string(from: inputDate)
     }
-    
-    
 }

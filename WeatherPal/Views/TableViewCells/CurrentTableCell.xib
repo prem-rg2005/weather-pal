@@ -17,28 +17,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiz-zR-XgC">
-                        <rect key="frame" x="186" y="16" width="41.5" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="Avw-0P-zVk"/>
-                        </constraints>
+                        <rect key="frame" x="186" y="16" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-vu-2oj">
-                        <rect key="frame" x="186" y="56" width="41.5" height="20.5"/>
+                        <rect key="frame" x="186" y="44.5" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAi-2u-AbS">
-                        <rect key="frame" x="186" y="84.5" width="41.5" height="20.5"/>
+                        <rect key="frame" x="186" y="73" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Gzd-ga-IcQ">
-                        <rect key="frame" x="153.5" y="113" width="106" height="20.5"/>
+                        <rect key="frame" x="153.5" y="101.5" width="106" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3f-Ug-pbR">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -63,7 +60,7 @@
                     <constraint firstItem="Gzd-ga-IcQ" firstAttribute="top" secondItem="vAi-2u-AbS" secondAttribute="bottom" constant="8" id="IFr-P7-Tzo"/>
                     <constraint firstItem="QTe-vu-2oj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="dlH-jV-NNd"/>
                     <constraint firstItem="aiz-zR-XgC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qI2-D7-nS0"/>
-                    <constraint firstItem="QTe-vu-2oj" firstAttribute="top" secondItem="aiz-zR-XgC" secondAttribute="bottom" constant="16" id="s4d-LL-J8Q"/>
+                    <constraint firstItem="QTe-vu-2oj" firstAttribute="top" secondItem="aiz-zR-XgC" secondAttribute="bottom" constant="8" id="s4d-LL-J8Q"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

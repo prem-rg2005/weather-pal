@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - WeatherData
 struct WeatherData: Codable {
@@ -65,7 +66,7 @@ struct WeatherElement: Codable {
     let id: Int
     let main: String
     let description: String
-    let icon: String?//Icon
+    let icon: String?
 }
 
 // MARK: - Daily

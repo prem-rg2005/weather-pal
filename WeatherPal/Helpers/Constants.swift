@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants {
     static let baseUrl = "https://api.openweathermap.org/data/3.0/onecall"
@@ -16,4 +17,5 @@ class Constants {
      Eg: If image name is 10d, URL should be "https://openweathermap.org/img/wn/10d@2x.png"
     */
     static let baseImageUrl = "https://openweathermap.org/img/wn/"
+    static let mainBackgroundColor: UIColor = UIColor(red: 88/255.0, green: 156/255.0, blue: 199/255.0, alpha: 1.0)
 }
