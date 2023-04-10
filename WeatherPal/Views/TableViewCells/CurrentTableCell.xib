@@ -17,25 +17,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiz-zR-XgC">
-                        <rect key="frame" x="186" y="16" width="41.5" height="20.5"/>
+                        <rect key="frame" x="186" y="8" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-vu-2oj">
-                        <rect key="frame" x="186" y="44.5" width="41.5" height="20.5"/>
+                        <rect key="frame" x="186" y="36.5" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAi-2u-AbS">
-                        <rect key="frame" x="186" y="73" width="41.5" height="20.5"/>
+                        <rect key="frame" x="186" y="65" width="41.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Gzd-ga-IcQ">
-                        <rect key="frame" x="153.5" y="101.5" width="106" height="20.5"/>
+                        <rect key="frame" x="153.5" y="93.5" width="106" height="20.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3f-Ug-pbR">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -53,7 +53,7 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aiz-zR-XgC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="AUh-oy-My3"/>
+                    <constraint firstItem="aiz-zR-XgC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AUh-oy-My3"/>
                     <constraint firstItem="vAi-2u-AbS" firstAttribute="top" secondItem="QTe-vu-2oj" secondAttribute="bottom" constant="8" id="CCK-s8-oyo"/>
                     <constraint firstItem="vAi-2u-AbS" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Eyr-kW-brW"/>
                     <constraint firstItem="Gzd-ga-IcQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="HE1-ox-TE7"/>

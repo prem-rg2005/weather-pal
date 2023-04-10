@@ -103,14 +103,14 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         } else if sections[indexPath.section] == .weekly {
             return 60
         } else {
-            return 110
+            return 120
         }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch sections[section] {
         case .hourly:
-            return "HOURLY"
+            return "HOURLY FORECAST"
         case .weekly:
             return "WEEKLY FORECAST"
         case .current:
