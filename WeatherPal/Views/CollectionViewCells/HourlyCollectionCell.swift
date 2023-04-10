@@ -30,7 +30,7 @@ class HourlyCollectionCell: UICollectionViewCell {
         self.tempLabel.textColor = .white
     }
 
-    func configureData(hourlyWeather: Current?) {
+    func configureData(hourlyWeather: Current?, timezone: String) {
         guard let hourly = hourlyWeather else {
             return
         }
@@ -38,16 +38,7 @@ class HourlyCollectionCell: UICollectionViewCell {
             let imageUrlString = "\(Constants.baseImageUrl)\(icon)@2x.png"
             self.iconImageView.loadImageFromUrl(urlString: imageUrlString)
         }
-        self.timeLabel.text = "Now"
+        self.timeLabel.text = Utils.getTime(unixTime: hourly.dt, timezone: timezone)
         self.tempLabel.text = "\(Int(hourly.temp))°"
-    }
-    
-    func getTimeForDate(_ date: Date?) -> String {
-        guard let inputDate = date else {
-            return ""
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE"
-        return formatter.string(from: inputDate)
     }
 }

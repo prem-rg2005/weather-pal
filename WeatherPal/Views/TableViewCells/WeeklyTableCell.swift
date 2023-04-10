@@ -44,17 +44,8 @@ class WeeklyTableCell: UITableViewCell {
             self.weatherIconView.loadImageFromUrl(urlString: imageUrlString)
         }
 
-        self.dayLabel.text = getDayForDate(Date(timeIntervalSince1970: TimeInterval(weekly.dt)))
+        self.dayLabel.text = Utils.getDayForDate(Date(timeIntervalSince1970: TimeInterval(weekly.dt)))
         self.highTempLabel.text = "H: \(Int(weekly.temp.max))°"
         self.lowTempLabel.text = "L: \(Int(weekly.temp.min))°"
-    }
-    
-    func getDayForDate(_ date: Date?) -> String {
-        guard let inputDate = date else {
-            return ""
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE"
-        return formatter.string(from: inputDate)
     }
 }

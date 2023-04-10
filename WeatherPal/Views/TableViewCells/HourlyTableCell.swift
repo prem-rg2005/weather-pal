@@ -15,6 +15,7 @@ class HourlyTableCell: UITableViewCell {
         return UINib(nibName: identifier, bundle: nil)
     }
     var hourlyWeatherData: [Current] = []
+    var timeZone: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +25,9 @@ class HourlyTableCell: UITableViewCell {
         hourlyCollectionView.dataSource = self
     }
 
-    func configureCollectionView(with hourlyWeatherData: [Current]) {
+    func configureCollectionView(with hourlyWeatherData: [Current], timeZone: String) {
         self.hourlyWeatherData = hourlyWeatherData
+        self.timeZone = timeZone
         self.hourlyCollectionView.reloadData()
     }
 
@@ -41,7 +43,7 @@ extension HourlyTableCell: UICollectionViewDataSource, UICollectionViewDelegateF
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = hourlyCollectionView.dequeueReusableCell(withReuseIdentifier: HourlyCollectionCell.identifier, for: indexPath) as! HourlyCollectionCell
-        cell.configureData(hourlyWeather: hourlyWeatherData[indexPath.row])
+        cell.configureData(hourlyWeather: hourlyWeatherData[indexPath.row], timezone: timeZone ?? "")
         return cell
     }
     

@@ -78,7 +78,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: HourlyTableCell.identifier, for: indexPath) as! HourlyTableCell
-            cell.configureCollectionView(with: self.viewModel.hourlyWeather ?? [])
+            cell.configureCollectionView(with: self.viewModel.hourlyWeather ?? [], timeZone: self.viewModel.weatherData?.timezone ?? "")
             return cell
         }
     }
