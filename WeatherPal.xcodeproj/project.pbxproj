@@ -104,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B4B1DD629E45A2900019F1F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BCF863929E12EA0006959C6 /* WeatherViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3BB6542D29E3BE8000A8A58C /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +159,8 @@
 			children = (
 				3BCF863529E12EA0006959C6 /* AppDelegate.swift */,
 				3BCF863729E12EA0006959C6 /* SceneDelegate.swift */,
-				3BCF863929E12EA0006959C6 /* WeatherViewController.swift */,
 				3BCF866729E16699006959C6 /* Models */,
+				3B4B1DD629E45A2900019F1F /* ViewControllers */,
 				3BCF866F29E18330006959C6 /* Views */,
 				3BCF866B29E167A9006959C6 /* ViewModel */,
 				3BCF866C29E1690C006959C6 /* Helpers */,
