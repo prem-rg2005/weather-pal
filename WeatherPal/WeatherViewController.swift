@@ -37,14 +37,14 @@ class WeatherViewController: UIViewController {
         }
     }
 
-    func getUserLocation() {
+    private func getUserLocation() {
         if self.userLocation == nil {
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
         }
     }
     
-    func updateViewModel(completion: @escaping () -> Void) {
+    private func updateViewModel(completion: @escaping () -> Void) {
         getUserLocation()
         if self.userLocation != nil {
             viewModel.userLocation = self.userLocation
