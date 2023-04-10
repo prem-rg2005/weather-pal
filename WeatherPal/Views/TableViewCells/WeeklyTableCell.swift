@@ -30,7 +30,7 @@ class WeeklyTableCell: UITableViewCell {
     }
 
     private func configureUI() {
-        self.dayLabel.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        self.dayLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         self.lowTempLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         self.highTempLabel.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
     }
