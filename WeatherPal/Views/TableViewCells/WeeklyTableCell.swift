@@ -33,15 +33,18 @@ class WeeklyTableCell: UITableViewCell {
         self.dayLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         self.lowTempLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         self.highTempLabel.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
+        self.weatherIconView.showLoading()
     }
-    
+
     func configureCellData(weeklyWeather: Daily?) {
         guard let weekly = weeklyWeather else {
             return
         }
         if let icon = weekly.weather.first?.icon {
             let imageUrlString = "\(Constants.baseImageUrl)\(icon)@2x.png"
-            self.weatherIconView.loadImageFromUrl(urlString: imageUrlString)
+            self.weatherIconView.loadImageFromUrl(urlString: imageUrlString) { [weak self] in
+                self?.weatherIconView.stopLoading()
+            }
         }
 
         self.dayLabel.text = Utils.getDayForDate(Date(timeIntervalSince1970: TimeInterval(weekly.dt)))

@@ -28,6 +28,7 @@ class HourlyCollectionCell: UICollectionViewCell {
         self.timeLabel.textColor = .white
         self.tempLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         self.tempLabel.textColor = .white
+        self.iconImageView.showLoading()
     }
 
     func configureData(hourlyWeather: Current?, timezone: String) {
@@ -36,7 +37,9 @@ class HourlyCollectionCell: UICollectionViewCell {
         }
         if let icon = hourly.weather.first?.icon {
             let imageUrlString = "\(Constants.baseImageUrl)\(icon)@2x.png"
-            self.iconImageView.loadImageFromUrl(urlString: imageUrlString)
+            self.iconImageView.loadImageFromUrl(urlString: imageUrlString) { [weak self] in
+                self?.iconImageView.stopLoading()
+            }
         }
         self.timeLabel.text = Utils.getTime(unixTime: hourly.dt, timezone: timezone)
         self.tempLabel.text = "\(Int(hourly.temp))°"

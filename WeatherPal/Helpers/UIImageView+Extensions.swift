@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func loadImageFromUrl(urlString: String) {
+    static let loadingViewTag = 123
+
+    func loadImageFromUrl(urlString: String, completion: @escaping () -> Void) {
         guard let url = URL(string: urlString) else {
             return
         }
@@ -17,8 +19,30 @@ extension UIImageView {
             if let imgData = try? Data(contentsOf: url) {
                 if let img = UIImage(data: imgData) {
                     self?.image = img
+                    completion()
                 }
             }
         }
+    }
+
+    func showLoading(style: UIActivityIndicatorView.Style = .medium) {
+        var loading = viewWithTag(UIImageView.loadingViewTag) as? UIActivityIndicatorView
+        if loading == nil {
+            loading = UIActivityIndicatorView(style: style)
+        }
+        
+        loading?.translatesAutoresizingMaskIntoConstraints = false
+        loading!.startAnimating()
+        loading!.hidesWhenStopped = true
+        loading?.tag = UIImageView.loadingViewTag
+        addSubview(loading!)
+        loading?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        loading?.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+    
+    func stopLoading() {
+        let loading = viewWithTag(UIImageView.loadingViewTag) as? UIActivityIndicatorView
+        loading?.stopAnimating()
+        loading?.removeFromSuperview()
     }
 }

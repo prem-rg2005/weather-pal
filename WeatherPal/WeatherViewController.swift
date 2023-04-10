@@ -12,6 +12,7 @@ class WeatherViewController: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Constants and variables
     var viewModel = WeatherViewModel()
@@ -32,7 +33,9 @@ class WeatherViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        showLoading(show: true)
         updateViewModel {
+            self.showLoading(show: false)
             self.tableView.reloadData()
         }
     }
@@ -49,6 +52,17 @@ class WeatherViewController: UIViewController {
         if self.userLocation != nil {
             viewModel.userLocation = self.userLocation
             viewModel.getWeatherDetails(completion: completion)
+        }
+    }
+
+    private func showLoading(show: Bool){
+        if show{
+            activityIndicator.startAnimating()
+        } else {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+            }
         }
     }
 }
@@ -124,9 +138,11 @@ extension WeatherViewController: CLLocationManagerDelegate {
         if !locations.isEmpty, userLocation == nil {
             userLocation = locations.first
             locationManager.stopUpdatingLocation()
-            updateViewModel {
+            showLoading(show: true)
+            updateViewModel { [weak self] in
+                self?.showLoading(show: false)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
         }
