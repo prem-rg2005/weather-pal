@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WeeklyTableCell: UITableViewCell {
 
@@ -33,7 +34,6 @@ class WeeklyTableCell: UITableViewCell {
         self.dayLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         self.lowTempLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         self.highTempLabel.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
-        self.weatherIconView.showLoading()
     }
 
     func configureCellData(weeklyWeather: Daily?) {
@@ -42,9 +42,8 @@ class WeeklyTableCell: UITableViewCell {
         }
         if let icon = weekly.weather.first?.icon {
             let imageUrlString = "\(Constants.baseImageUrl)\(icon)@2x.png"
-            self.weatherIconView.loadImageFromUrl(urlString: imageUrlString) { [weak self] in
-                self?.weatherIconView.stopLoading()
-            }
+            self.weatherIconView.sd_imageIndicator = SDWebImageActivityIndicator.medium
+            self.weatherIconView.sd_setImage(with: URL(string: imageUrlString))
         }
 
         self.dayLabel.text = Utils.getDayForDate(Date(timeIntervalSince1970: TimeInterval(weekly.dt)))
