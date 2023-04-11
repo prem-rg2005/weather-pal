@@ -13,9 +13,9 @@ class WeatherViewModel {
     var userLocation: CLLocation?
     var weatherData: WeatherData? {
         didSet {
-            self.dailyWeather = self.weatherData?.daily.first
-            self.hourlyWeather = self.weatherData?.hourly
             self.currentWeather = self.weatherData?.current
+            self.hourlyWeather = self.weatherData?.hourly
+            self.dailyWeather = self.weatherData?.daily.first
             self.weeklyWeather = self.weatherData?.daily
         }
     }
