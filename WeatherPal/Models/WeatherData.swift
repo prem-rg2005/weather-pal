@@ -1,5 +1,5 @@
 //
-//  WeatherModel.swift
+//  WeatherData.swift
 //  WeatherPal
 //
 //  Created by Prem Shankar Rajagopalan Nayar on 8/4/23.
