@@ -2,11 +2,14 @@
 Repository that holds demo code for a simple weather app
 
 ## App summary
-Xcode version used: 13.4.1 (Rosetta not enabled for Apple chip)
-Simulators used for testing: iPhone 13 Pro Max, iPhone 8
+    1. Xcode version used: 13.4.1 (Rosetta not enabled for Apple chip)
+    2. Simulators used for testing: iPhone 13 Pro Max, iPhone 12 Pro Max, iPhone 12 Mini, iPhone 8
+    3. Dependency Manager: Cocoapods
+    4. Third party library: `SDWebImage`
 
 This simple app shows the user a single screen which retrieves his / her location using CoreLocation framework. User's coordinates are then passed on as parameters to the API (from `https://openweathermap.org/api`) whose response is stored in the model class (WeatherData).
-A UITableView is used to display 3 UITableViewCells that show the below information: -
+
+A UITableView is used to display 3 UITableViewCells that show the below information:
     1. Current location, temperature, weather description, high temperature and low temperature
     2. Hourly weather forecast
     3. Daily weather forecast (for the whole week)
@@ -21,8 +24,8 @@ Model-View-ViewModel (MVVM) is used for this app and the viewModel handles all b
     4. Helpers: Helper and Utility classes
 
 ## Known functionality and edge case omissions
-The app is designed in the simplest way without over-engineering solutions. Some of the known omissions (which can boost performance) are as follows: -
+The app is designed in the simplest way without over-engineering solutions. Some of the known omissions (which can boost performance) are as follows:
+
     1. NSCache can be used to cache data for better performance
-    2. Third party libraries such as SDWebImage / Kingfisher (for image caching and optimization), MBProgressHud (activity indicator), etc are omitted on purpose to reduce code complexity
-    3. Light / dark mode UI changes
+    2. Light / dark mode UI changes
     
