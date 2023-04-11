@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HourlyCollectionCell: UICollectionViewCell {
 
@@ -28,7 +29,6 @@ class HourlyCollectionCell: UICollectionViewCell {
         self.timeLabel.textColor = .white
         self.tempLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         self.tempLabel.textColor = .white
-        self.iconImageView.showLoading()
     }
 
     func configureData(hourlyWeather: Current?, timezone: String) {
@@ -37,9 +37,8 @@ class HourlyCollectionCell: UICollectionViewCell {
         }
         if let icon = hourly.weather.first?.icon {
             let imageUrlString = "\(Constants.baseImageUrl)\(icon)@2x.png"
-            self.iconImageView.loadImageFromUrl(urlString: imageUrlString) { [weak self] in
-                self?.iconImageView.stopLoading()
-            }
+            self.iconImageView.sd_imageIndicator = SDWebImageActivityIndicator.medium
+            self.iconImageView.sd_setImage(with: URL(string: imageUrlString))
         }
         self.timeLabel.text = Utils.getTime(unixTime: hourly.dt, timezone: timezone)
         self.tempLabel.text = "\(Int(hourly.temp))°"
